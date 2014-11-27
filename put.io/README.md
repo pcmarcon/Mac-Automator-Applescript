@@ -19,7 +19,10 @@ Feel free to change/adapt/copy the workflow as you please.
 *******************************
 put.io.airplay.service.workflow
 *******************************
+
 Repeat steps 1 and 2 above
+
 3 - Open put.io page with the video You want to play on Apple TV;
+
 4 - Press the keyboard shortcut You created on step 2 and select on what Apple TV the video must be played.
 
