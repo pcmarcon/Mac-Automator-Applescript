@@ -1,30 +1,40 @@
-**********************************
-put.io.add.magnet.service.workflow 
-**********************************
-1 - Download & put workflow file on /Users/"YourUser"/Library/Services;
 
-2 - Create a SERVICE keyboard shortcut for the workflow You just downloaded (nice tutorial on http://www.macworld.com/article/1139829/shortcutservices.html);
+***********************
+putiotoolbox.safariextz 
+***********************
+1 - Download putiotoolbox.safariextz and run it once to add the extension on Safari;
 
-3 - Open the web page where You want to collect the magnets on safari;
+2 - Download putiotbhelper.app and move it to Applications folder;
 
-4 - Press the keyboard shortcut You created on step 2 and all the magnets on the webpage will be automatically added to your put.io account.
+3 - Install airstream from https://github.com/unused/airstream;
+
+Now you will see a new toolbar on Safari with this options:
+- Sent to Airplay
+- Upload Magnet/Torrent to Put.io
+- Search Opensubtitles
+- Extract default subtitle from Put.io video
+- Show IMDB details
+- Search Torrent for this file
+- Search trailer
 
 
-Edit the workflow and change the variable flgList to TRUE if you want to choose what magnets send to put.io, or FALSE to send all magnets to put.io without prompt.
+You can use the scripts in two ways:
+1- Clicking on the toolbar icons. In this case the script will use Safari’s title or url to perform the selected task
+2- Selecting some text on Safari and clicking with the right button will show the context menu with the same toolbar options
 
-Feel free to change/adapt/copy the workflow as you please.
+
+On Safari’s preferences is possible to configure some options of putiotoolbox like:
+- Default Airplay Device - If none, will show a popup with all devices available
+- Put.io Personal Token - You can get this on any Put.io file url or leave blank
+- Subtitle Language Code - Ex: pob=portguese brazil or eng=english
+- Search Torrent Query URL - Paste here the search url of the torrent site You are using
+- Search Trailer Query URL - Paste here the search url of the trailer site You are using
+
+On both Torrent an Trailer Search options you can use the text %%SEARCH_STRING%% to be replaced by the text you selected on Safari.
 
 
+The option Send to Airplay will work on Put.io, on Youtube and many other sites.
  
-*******************************
-put.io.airplay.service.workflow
-*******************************
 
-Repeat steps 1 and 2 above
-
-3 - Install airstream from https://github.com/unused/airstream
-
-4 - Open put.io page with the video You want to play on Apple TV;
-
-5 - Press the keyboard shortcut You created on step 2 and select on what Apple TV the video must be played.
+Feel free to change/adapt/copy the scripts or customize the toolbar as you please!!!
 

@@ -1,132 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>AMApplicationBuild</key>
-	<string>409</string>
-	<key>AMApplicationVersion</key>
-	<string>2.5</string>
-	<key>AMDocumentVersion</key>
-	<string>2</string>
-	<key>actions</key>
-	<array>
-		<dict>
-			<key>action</key>
-			<dict>
-				<key>AMAccepts</key>
-				<dict>
-					<key>Container</key>
-					<string>List</string>
-					<key>Optional</key>
-					<true/>
-					<key>Types</key>
-					<array>
-						<string>com.apple.applescript.object</string>
-					</array>
-				</dict>
-				<key>AMActionVersion</key>
-				<string>1.0.2</string>
-				<key>AMApplication</key>
-				<array>
-					<string>Automator</string>
-				</array>
-				<key>AMParameterProperties</key>
-				<dict>
-					<key>source</key>
-					<dict/>
-				</dict>
-				<key>AMProvides</key>
-				<dict>
-					<key>Container</key>
-					<string>List</string>
-					<key>Types</key>
-					<array>
-						<string>com.apple.applescript.object</string>
-					</array>
-				</dict>
-				<key>ActionBundlePath</key>
-				<string>/System/Library/Automator/Run AppleScript.action</string>
-				<key>ActionName</key>
-				<string>Executar AppleScript</string>
-				<key>ActionParameters</key>
-				<dict>
-					<key>source</key>
-					<string>on run {input, parameters}	tell application "Safari"		activate		set myString to source of document 1		set webtitle to my txt_replace((name of document 1 as string), " ", ".")	end tell		set webtxt to paragraphs of myString	set tid to AppleScript's text item delimiters	set AppleScript's text item delimiters to linefeed	#########################################	# Adjust to DESTINATION FOLDER you wanto to SAVE the JPGs #	set destfolder to "~/Desktop/images/" as text	#########################################	set destfolder to destfolder &amp; webtitle &amp; "/"	set txttmp to "" as text		repeat with curline in webtxt				if curline contains ".jpg" then			set AppleScript's text item delimiters to " "			set txtcount to 0						repeat with curtxt in curline				set txtcount to txtcount + 1				set txttmp to text item txtcount of curline								if txttmp contains ".jpg" then					set urltmp to my clear_url(txttmp)					set countmp to my counttxt(urltmp, "http") as integer										if my countmp &gt; 1 then						set urltmp to my clear_url(text 4 thru end of urltmp)						my saveimg(urltmp, destfolder)					else						my saveimg(urltmp, destfolder)					end if									end if							end repeat						set AppleScript's text item delimiters to linefeed		end if			end repeat		set AppleScript's text item delimiters to tidend runon txt_replace(txtstring, txtold, txtnew)	set subtid to text item delimiters of AppleScript	set text item delimiters of AppleScript to txtold	set txtstring to text items of txtstring	set text item delimiters of AppleScript to txtnew	set txtstring to "" &amp; txtstring	set text item delimiters of AppleScript to subtid	return txtstringend txt_replaceon clear_url(txtstring)	set httppos to (offset of "http" in txtstring)	set jpgpos to (offset of ".jpg" in txtstring)	return text httppos thru (jpgpos + 3) of txtstringend clear_urlon counttxt(txtstring, txtfind)	set AppleScript's text item delimiters to txtfind	set txtlist to text items of txtstring	set tcount to ((count of txtlist) - 1)	set AppleScript's text item delimiters to ""	return tcountend counttxton saveimg(txturl, destfolder)	set {tid2, AppleScript's text item delimiters} to {AppleScript's text item delimiters, "/"}	set filename to (last text item of txturl) as string	set AppleScript's text item delimiters to tid2	do shell script ("mkdir -p " &amp; destfolder &amp; "; curl -A/--user-agent " &amp; txturl &amp; " &gt;&gt; " &amp; (destfolder &amp; filename))end saveimg</string>
-				</dict>
-				<key>BundleIdentifier</key>
-				<string>com.apple.Automator.RunScript</string>
-				<key>CFBundleVersion</key>
-				<string>1.0.2</string>
-				<key>CanShowSelectedItemsWhenRun</key>
-				<false/>
-				<key>CanShowWhenRun</key>
-				<true/>
-				<key>Category</key>
-				<array>
-					<string>AMCategoryUtilities</string>
-				</array>
-				<key>Class Name</key>
-				<string>RunScriptAction</string>
-				<key>InputUUID</key>
-				<string>8FA71A6D-D0E5-4077-B00A-E5276EF9EF5F</string>
-				<key>Keywords</key>
-				<array>
-					<string>Executar</string>
-				</array>
-				<key>OutputUUID</key>
-				<string>89A6B081-A7E8-42EF-89FF-92BE541B7A7D</string>
-				<key>ShowWhenRun</key>
-				<false/>
-				<key>UUID</key>
-				<string>1A80987D-F3AF-4A49-8451-4DECF88C6E63</string>
-				<key>UnlocalizedApplications</key>
-				<array>
-					<string>Automator</string>
-				</array>
-				<key>arguments</key>
-				<dict>
-					<key>0</key>
-					<dict>
-						<key>default value</key>
-						<string>on run {input, parameters}
-	
-	(* Your script goes here *)
-	
-	return input
-end run</string>
-						<key>name</key>
-						<string>source</string>
-						<key>required</key>
-						<string>0</string>
-						<key>type</key>
-						<string>0</string>
-						<key>uuid</key>
-						<string>0</string>
-					</dict>
-				</dict>
-				<key>isViewVisible</key>
-				<true/>
-				<key>location</key>
-				<string>428.000000:648.000000</string>
-				<key>nibPath</key>
-				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
-			</dict>
-			<key>isViewVisible</key>
-			<true/>
-		</dict>
-	</array>
-	<key>connectors</key>
-	<dict/>
-	<key>workflowMetaData</key>
-	<dict>
-		<key>serviceInputTypeIdentifier</key>
-		<string>com.apple.Automator.nothing</string>
-		<key>serviceOutputTypeIdentifier</key>
-		<string>com.apple.Automator.nothing</string>
-		<key>serviceProcessesInput</key>
-		<integer>0</integer>
-		<key>workflowTypeIdentifier</key>
-		<string>com.apple.Automator.servicesMenu</string>
-	</dict>
-</dict>
-</plist>
